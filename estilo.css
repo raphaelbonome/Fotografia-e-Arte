@@ -10,6 +10,11 @@ html, body {
     font-family: "Roboto", sans-serif;;
     overflow-x: hidden; /* Evita rolagem lateral estranha */
 }
+p, h1, h2 {
+  overflow-wrap: break-word;  /* Força a quebra de palavras longas */
+  word-wrap: break-word;
+  hyphens: auto;              /* Adiciona hífen se necessário (opcional) */
+}
 
 body {
     
@@ -211,6 +216,11 @@ text-align: center;
     margin-top: 50px;
     font-size: 18pt;
 }
+
+.bloco_conteudo.invertido{
+    flex-direction: row-reverse;
+
+}
 #quemsomos h1{
     text-align: center;
 
@@ -303,11 +313,107 @@ text-align: center;
 
 
 /* --- SEÇÃO TRAJETÓRIA --- */
+
+
 #nossa_trajetoria {
+    padding: 80px 10%;
+    background-color: #34404E; 
+}
+
+.container_trajetoria {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.cabecalho_secao {
     text-align: center;
-    padding: 60px 20px;
-    margin-top: 40px;
-    font-size: 20pt
+    margin-bottom: 60px;
+}
+
+.titulo_principal {
+    font-family: 'Playfair Display SC', serif;
+    font-size: 3rem;
+    color: #D5BC9E;
+    letter-spacing: 2px;
+}
+
+.linha_decorativa {
+    width: 60px;
+    height: 3px;
+    background-color: #D5BC9E;
+    margin: 10px auto;
+}
+
+.bloco_historia {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 80px;
+    text-align: left;
+}
+
+/* Inverte a ordem da foto/texto no segundo bloco para dinamismo */
+.bloco_historia.invertido {
+    flex-direction: row-reverse;
+}
+
+.texto_historia h2 {
+    font-family: 'Playfair Display SC', serif;
+    color: #D5BC9E;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.texto_historia p {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.8;
+    color: #e0d5c5; /* Um tom levemente mais claro para leitura */
+    font-size: 1.1rem;
+}
+
+.moldura_foto {
+    flex-shrink: 0;
+    width: 450px;
+    border: 1px solid #D5BC9E;
+    padding: 10px;
+    background-color: rgba(213, 188, 158, 0.05);
+}
+
+.moldura_foto img {
+    width: 100%;
+    height: auto;
+    filter: sepia(30%); /* Toque vintage que combina com a cor ouro */
+    transition: 0.5s;
+}
+
+.moldura_foto img:hover {
+    filter: sepia(0%);
+    transform: scale(1.02);
+}
+
+.legenda_trajetoria {
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 10px;
+    color: #D5BC9E;
+    text-align: center;
+}
+
+/* Responsividade para Celulares */
+@media screen and (max-width: 768px) {
+    .bloco_historia, .bloco_historia.invertido {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .moldura_foto {
+        width: 100%;
+    }
+    
+    .titulo_principal {
+        font-size: 2rem;
+    }
 }
 
 /* --- MODAL (POP-UP) --- */
@@ -483,6 +589,35 @@ margin-left: 0px;
         color: rgb(243, 180, 9);
         
     }
+
+
+
+.a1{
+    align-items: center;
+}
+.trilho-carrossel1{
+    margin-left: 5vw;
+    gap: 50px;
+    align-items: center;
+}
+.lista_itens{
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top:-50px;
+    width: 20vw;
+    box-shadow: 20px 20px 10px #D5BC9E;
+    border: none;
+    background:#3a4c61 ;
+
+}
+.lista_itens p{
+    width: 100%;
+    text-align: center;
+    overflow-wrap: break-word;  /* Força a quebra de palavras longas */
+     word-wrap: break-word;
+    hyphens: auto;
+}
+
     /*----------------------- quem somos-------------------*/
     .img_quemsomos{
         width: 30%;
@@ -518,6 +653,11 @@ margin-left: 0px;
     }
 
 /*----------------------------- nossa trajetoria ----------------------------*/
+.seta-navegacao{
+        display: block;
+    }
+
+
 }
 
 
@@ -548,35 +688,47 @@ input, textarea {
 }
 
 
-/*------------------------- pagina home para pc ----------------------*/
+/*------------------------- pagina fale conosco para pc ----------------------*/
 
 @media screen and (min-width:431px ){
  
     /* O "pai" que coloca os dois lado a lado */
     #c1{
-        display: flex;
-        justify-content: center; /* Centraliza o conjunto na tela */
-        align-items: flex-start; /* Alinha ambos pelo topo */
-        gap: 40px;               /* Espaço entre o formulário e a imagem */
-        padding: 50px;
-        
+       display: flex;
+    justify-content: center; 
+    align-items: flex-start; /* Alinha o topo da imagem com o topo do título */
+    gap: 40px;
+    padding: 50px;
     }
-
+.bloco_contato_esquerdo {
+    display: flex;
+    flex-direction: column; /* Garante que o H1 fique em cima do FORM */
+    width: 400px; /* Mantém a largura que você já estava usando */
+}
     #formulario_faleconosco {
-        width: 400px;
-        display: flex;
-        flex-direction: column;
-        margin: 0;               /* Remove margens que possam atrapalhar */
+       width: 100%; /* Ocupa toda a largura do bloco_contato_esquerdo (400px) */
+    display: flex;
+    flex-direction: column;            
     }
 
     .grupo-campo {
-        width: 100%;             /* Ocupa os 400px do formulário */
+        width: 100%;            
     }
 
     #img_faleconosco {
-        width: 400px;            /* Ajuste o tamanho da imagem para combinar */
+        margin-top: 100px;
+        width: 450px;            
         height: auto;
-        border-radius: 10px;     /* Mantendo seu padrão de bordas */
+        border-radius: 10px;     
         border: #D5BC9E solid 2px;
     }
+
+
+    #h1fc{
+        margin-top: 0; /* Remove espaço extra no topo */
+    margin-bottom: 20px; /* Espaço entre o título e o formulário */
+    color: #D5BC9E;
+    font-family: 'Playfair Display SC', serif;
+    }
+    
 }
