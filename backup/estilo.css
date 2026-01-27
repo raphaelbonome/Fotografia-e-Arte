@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body{
+   width: 810px;
+   height: max-content;
+   background-color: #34404E;
+   display: flex;
+    flex-direction: column;
+}
+
+#cabecalho{
+    margin-left: -10px;
+    margin-top: -10px;
+    width: max-content;
+    position: relative;
+    
+     
+
+}
+
+.titulo_pagina{
+    text-align: center;
+    height: 200px;
+    width: 400px;
+    position: absolute;
+    font-family: "Playfair Display SC", serif;
+    left: 30vw;
+    color: #D5BC9E;
+}
+
+.carrossel {
+    width: max-content;    
+    padding-top: 180px;
+    overflow: hidden;  /* Garante que as fotos não saiam da moldura */
+    position: relative;
+    background-color: transparent;
+    margin-left: -5%;
+    flex: 1
+    
+}
+
+.trilho_animado {
+    display: flex;
+    width: max-content;
+    /* Chamamos a animação: 15 segundos, linear (sem parar), infinita */
+    animation: rolagem_suave 15s linear infinite;
+}
+
+
+.foto_carrossel{
+    
+    width: 400px; /* Ou o tamanho que você desejar */
+    height: 300px;
+    object-fit: cover;
+    margin-left: -42px;
+    /* A mágica do degradê acontece aqui */
+    /* Criamos uma máscara que é transparente nas pontas e sólida no meio */
+   
+}
+
+.trilho_animado .foto_item:first-child {
+    margin-left: 0;
+}
+
+@keyframes rolagem_suave {
+   0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-600px); 
+    }
+
+}
+
+
+.menu{
+    display: flex;
+    list-style: none;
+    position: absolute;
+    
+    
+
+}
+
+li.paginas a{
+    text-decoration: none !important;
+    color: #D5BC9E;
+ 
+}
+
+
+li{
+    text-decoration: none;
+    padding: 20px;
+    position: relative;
+    top: -50vw;
+    text-decoration: none;
+    left: 15vh;
+    
+    
+}
+.paginas_cabecalho{
+    color: #D5BC9E;
+}
+.logo{
+    width: 250px;
+    height: 250px;
+   position: relative;
+   left: -5vh;
+   top: -8vw;
+}
+
+
+#apre{
+    
+    text-align: center;
+    position: relative;
+    padding-right: 10px;
+    height: 800px;
+    font-family:"Playfair Display SC" ;
+    font-size: 15pt;
+}
+#quemsomos{
+    margin-top: -100px;
+    color: #D5BC9E;
+}
+
+div#apre p{
+    color: #D5BC9E !important;
+}
+#nossa_trajetoria{
+    text-align: center;
+    font-family:"Playfair Display SC" ;
+    font-size: 15pt;
+    position: relative;
+    top: 1100px;
+    color: #D5BC9E;
+}
+
+.img_inicio{
+    width: 500px;
+}
+#img_nossatrajetoria{
+
+
+}
+.legenda_quemsomos{
+
+    font-size: 8pt;
+}
+
+.rodape{
+    position: relative;
+    bottom: -1500px;
+}
+.redes{
+    padding-left: 10px ;
+}

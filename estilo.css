@@ -1,0 +1,582 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
+/* --- RESET E ESTRUTURA GLOBAL --- */
+html, body {
+    width: 100%; /* Removido fixo de 800px para evitar corte lateral */
+    margin: 0;
+    padding: 0;
+    background-color: #34404E;
+    color: #D5BC9E;
+    font-family: "Roboto", sans-serif;;
+    overflow-x: hidden; /* Evita rolagem lateral estranha */
+}
+
+body {
+    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+}
+
+.menu li {
+    padding: 10px 20px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #D5BC9E;
+}
+/* --- CABEÇALHO --- */
+#cabecalho {
+    width: 100%;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.logo {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    left: 10vh;
+    top: -8vw;
+}
+/*-----------------------pagina home ---------------------*/
+
+.titulo_pagina {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 2rem;
+}
+
+#titulo_carrossel{
+        text-align: center;
+
+
+}
+
+.carrossel {
+    width: max-content;    
+   
+    overflow: hidden;  /* Garante que as fotos não saiam da moldura */
+    position: relative;
+    background-color: transparent;
+    margin-left: -5%;
+    flex: 1;
+    width: 810px;
+}
+
+.trilho_animado {
+    
+    display: flex;
+    width: max-content;
+    /* Chamamos a animação: 15 segundos, linear (sem parar), infinita */
+    animation: rolagem_suave 15s linear infinite;
+}
+
+
+.foto_carrossel{
+    
+    width: 400px; /* Ou o tamanho que você desejar */
+    height: 300px;
+    object-fit: cover;
+    
+    /* A mágica do degradê acontece aqui */
+    /* Criamos uma máscara que é transparente nas pontas e sólida no meio */
+   
+}
+
+@keyframes rolagem_suave {
+   0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-600px); 
+    }
+
+}
+
+
+/*-------------------------------------------------------------------------------------------
+            segundo carrossel*/
+.carrossel1 { 
+    position: relative;
+    background-color: transparent;
+    margin-left: -5%;
+    flex: 1;
+    width: 810px;
+    /* Adicionei a linha abaixo para garantir que o corte aconteça aqui */
+    overflow: hidden; 
+}
+
+.trilho-carrossel1 {
+    padding-top: 50px;
+    padding-left: 10px;
+    display: flex;
+    height: 400px;
+    width: 315px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: mandatory;
+    scrollbar-width: none;
+    
+}
+
+.seta-navegacao1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #D5BC9E;
+    color: #34404E;
+    border: none;
+    font-size: 24px;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 20;
+    border-radius: 50%;
+    opacity: 0.5;
+    display:none;
+
+}
+#botao_anterior1 { left: 3vh; }
+#botao_proximo1 { left: 92vw;}
+ 
+#lista_itens{
+display: flex;
+
+
+text-align: center;
+}
+
+.lista_itens{
+    width: 150px;
+    height: 350px;
+    border-radius: 10px;
+    border:#D5BC9E solid 2px;
+    margin-left: 15px;
+    
+    
+}
+
+.lista_itens  p{
+    width: 145px;
+}
+
+.lista_itens img{
+    height: 150px;
+    width: 150px;
+}
+
+
+
+/* --- SEÇÃO APRESENTAÇÃO --- */
+
+.img_inicio{
+    width: 350px;
+    margin-left: -30px;
+    border:#D5BC9E solid 1px;
+}
+.link_inicial{
+    color: #D5BC9E;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    border: #D5BC9E solid 1px;
+}
+.img_quemsomos{
+    position:relative ;
+    left: 10px;
+
+}
+
+#img_nossatrajetoria{
+    position: relative;
+    right: 25px;
+}
+#legenda_carrossel{
+   font-size: 10px;
+   text-align: center;
+   margin-top: -30px;
+}
+
+.bloco_conteudo{
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+    font-size: 18pt;
+}
+#quemsomos h1{
+    text-align: center;
+
+} 
+
+
+
+/* --- CARROSSEL (A MUDANÇA PRINCIPAL) --- */
+.moldura-carrossel {
+    position: relative;
+    width: 400px;
+    max-width: 900px; /* Ajustado para caber o trilho de 810px + setas */
+    margin: 80px auto; /* Centraliza e dá espaço sem 'top' gigante */
+    overflow: hidden;
+}
+
+.trilho-carrossel {
+    display: flex;
+    
+    width: 100%;
+    margin: 0 auto;
+    gap: 0;
+    overflow-x: auto; /* Permite o scroll do JS */
+    scroll-snap-type: mandatory;
+    scrollbar-width: none;
+    
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    padding: 20px 0;
+}
+
+
+
+
+
+.trilho-carrossel::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.foto_carrossel {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    flex-shrink: 0; /* Impede que a foto esmague */
+}
+
+.foto_carrossel1 {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    flex-shrink: 0; /* Impede que a foto esmague */
+}
+
+
+
+/* --- SETAS DE NAVEGAÇÃO --- */
+.seta-navegacao {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #D5BC9E;
+    color: #34404E;
+    border: none;
+    font-size: 24px;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 20;
+    border-radius: 50%;
+    opacity: 0.5;
+    display:none;
+
+}
+
+
+.seta-navegacao:hover{
+    opacity: 1;
+
+}
+
+#botao_anterior { left: 0; }
+#botao_proximo { right: 0; }
+
+
+
+
+/* --- SEÇÃO TRAJETÓRIA --- */
+#nossa_trajetoria {
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 40px;
+    font-size: 20pt
+}
+
+/* --- MODAL (POP-UP) --- */
+.modal-oculto {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.conteudo-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#imagem_exibida {
+    max-width: 90%;
+    max-height: 80%;
+    border: 3px solid white;
+}
+
+#texto_legenda {
+    margin-top: 20px;
+    font-size: 15pt;
+    text-align: center;
+}
+
+#botao_fechar {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 60px;
+    cursor: pointer;
+    border: 3px solid white;
+}
+
+/* --- RODAPÉ --- */
+.rodape {
+    margin-top: auto; /* Empurra o rodapé para o fim da página */
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 10pt;
+}
+.rodape a{
+    color: #D5BC9E;
+}
+
+.botao-whatsapp-fixo {
+    position: fixed; /* Mantém o botão parado na tela */
+    width: 60px;
+    height: 60px;
+    bottom: 40px; /* Distância do fundo */
+    right: 40px;  /* Distância da direita */
+    background-color: #25d366; /* Verde oficial do WhatsApp */
+    color: #FFF;
+    border-radius: 50px; /* Deixa o botão redondo */
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidade */
+    z-index: 1000; /* Garante que ele fique na frente de tudo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.icone-whatsapp {
+    width: 35px; /* Tamanho do ícone dentro do círculo */
+    height: 35px;
+}
+
+/* Efeito de aumentar levemente ao passar o mouse */
+.botao-whatsapp-fixo:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+
+}
+/*--------------------------------- telas grandes pagina home -------------------------------*/    
+
+@media screen and (min-width:431px ){
+
+    body{
+        font-size: 20pt;
+    }
+
+    .foto_carrossel:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+/*---------------- carrossel 1-------------------------------*/
+    .carrossel{
+        height: 50vh;
+        width: 104vw;
+        border: #D5BC9E solid 2px;
+    }
+
+
+    .trilho_animado{
+        display: flex;
+        position: absolute;
+        margin-top: 80px;
+        
+    }
+
+
+
+
+
+/*--------------------carrosel 2 -------------------*/
+  
+
+.carrossel1{
+    font-size: 15pt;
+}
+
+
+#lista_itens{
+width: 100vw;
+margin-top: -40px;
+margin-left: 0px;
+
+}
+.trilho-carrossel1{
+    width: 100%;
+    margin-left: 22vw;
+}
+.lista_itens{
+    padding: 30px;
+    
+    margin-top: -30px;    
+}
+
+.seta-navegacao1{
+    display: none;
+}
+
+/*---------------------- menu topo ----------------------*/
+    .logo{
+        width: 400px;
+        height: 400px;
+        left: 35vw;
+        top: 5vh;
+        background-color: #D5BC9E;
+        border-radius: 50%;
+    }
+
+
+
+    .menu{
+        font-size: 25px;
+         
+        
+    }
+
+    .menu li {
+        position: relative;
+        right: -450px;
+        top: -380px;
+
+    }
+   
+    .menu li  :hover{
+        border: #D5BC9E solid 1px;
+        color: rgb(243, 180, 9);
+        
+    }
+    /*----------------------- quem somos-------------------*/
+    .img_quemsomos{
+        width: 30%;
+        border: #D5BC9E, solid, 2px;
+        border-radius: 20px;
+    }
+
+    
+    .bloco_conteudo{
+        height: 300p;
+        display: flex; /* Alinha os filhos lado a lado */
+    align-items: center; /* Centraliza verticalmente a imagem com o texto */
+    gap: 30px; /* Cria um espaço entre a imagem e o texto */
+    margin-bottom: 50px; /* Espaço entre os parágrafos */
+    }
+    #quemsomos h1{
+        text-align: center;
+    }
+
+
+
+/*------------------------------- carrossel 3 -------------------------*/
+
+  .foto_carrossel1{
+        width: 100%;
+        
+    }
+
+    .moldura-carrossel{
+        width: 80%;
+        
+
+    }
+
+/*----------------------------- nossa trajetoria ----------------------------*/
+}
+
+
+
+/*-------------------------- pagina contato --------------------------------*/
+
+
+.grupo-campo {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    width: 400px;
+    border: 1px solid #D5BC9E; /* Cor ouro da sua paleta */
+    border-radius: 5px; /* Bordas arredondadas como combinamos */
+    padding: 10px;
+}
+
+.botao-enviar {
+    background-color: #D5BC9E;
+    color: #34404E;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+/*------------------------- pagina home para pc ----------------------*/
+
+@media screen and (min-width:431px ){
+ 
+    /* O "pai" que coloca os dois lado a lado */
+    #c1{
+        display: flex;
+        justify-content: center; /* Centraliza o conjunto na tela */
+        align-items: flex-start; /* Alinha ambos pelo topo */
+        gap: 40px;               /* Espaço entre o formulário e a imagem */
+        padding: 50px;
+        
+    }
+
+    #formulario_faleconosco {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        margin: 0;               /* Remove margens que possam atrapalhar */
+    }
+
+    .grupo-campo {
+        width: 100%;             /* Ocupa os 400px do formulário */
+    }
+
+    #img_faleconosco {
+        width: 400px;            /* Ajuste o tamanho da imagem para combinar */
+        height: auto;
+        border-radius: 10px;     /* Mantendo seu padrão de bordas */
+        border: #D5BC9E solid 2px;
+    }
+}
