@@ -2,9 +2,10 @@ const express = require('express');
 const fs = require('fs');
 const multer = require('multer');
 const caminho = require('path');
+const { criptografar, descriptografar } = require('./criptografia');
 
 const aplicativo = express();
-const porta = 3000;
+const porta = 5501;
 const caminhoRaiz = caminho.join(__dirname, '../../');
 
 // Configurações iniciais ⚙️
@@ -42,11 +43,58 @@ const upload = multer({ storage: armazenamento });
 const obter_dados = () => JSON.parse(fs.readFileSync(caminho.join(caminhoRaiz, 'dados_do_site.json'), 'utf-8'));
 const salvar_dados = (dados) => fs.writeFileSync(caminho.join(caminhoRaiz, 'dados_do_site.json'), JSON.stringify(dados, null, 2));
 
+// --- Função para Obter Credenciais Descriptografadas ---
+const obter_credenciais = () => {
+    const credenciais_criptografadas = JSON.parse(fs.readFileSync(caminho.join(__dirname, 'credenciais.json'), 'utf-8'));
+    return {
+        login: descriptografar(credenciais_criptografadas.login),
+        senha: descriptografar(credenciais_criptografadas.senha)
+    };
+};
+
 // --- Rotas ---
 
 // Rota para o site carregar as informações 📖
 aplicativo.get('/obter-conteudo', (req, res) => {
     res.json(obter_dados());
+});
+
+// Rota de Login 🔐
+aplicativo.post('/validar-login', (req, res) => {
+    try {
+        const { login, senha } = req.body;
+
+        // Validação básica
+        if (!login || !senha) {
+            return res.status(400).json({ 
+                sucesso: false, 
+                mensagem: 'Login e senha são obrigatórios!' 
+            });
+        }
+
+        // Obter credenciais descriptografadas
+        const credenciais = obter_credenciais();
+
+        // Comparar credenciais
+        if (login === credenciais.login && senha === credenciais.senha) {
+            res.json({ 
+                sucesso: true, 
+                mensagem: 'Login realizado com sucesso! ✅',
+                token: 'autenticado'
+            });
+        } else {
+            res.status(401).json({ 
+                sucesso: false, 
+                mensagem: 'Login ou senha incorretos! ❌' 
+            });
+        }
+    } catch (erro) {
+        console.error('Erro no login:', erro);
+        res.status(500).json({ 
+            sucesso: false, 
+            mensagem: 'Erro ao processar login.' 
+        });
+    }
 });
 
 // Rota Genérica para Atualizar Seções ✍️
@@ -115,8 +163,8 @@ aplicativo.post('/atualizar-secao', upload.any(), (req, res) => {
     }
 });
 
-const servidor = aplicativo.listen(porta, () => {
-    console.log(`✅ Servidor rodando em http://localhost:${porta}`);
+const servidor = aplicativo.listen(porta, '127.0.0.1', () => {
+    console.log(`✅ Servidor rodando em http://127.0.0.1:${porta}`);
     console.log(`📌 Pressione Ctrl+C para parar o servidor...`);
 });
 
