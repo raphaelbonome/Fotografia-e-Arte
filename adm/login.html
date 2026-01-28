@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Login</title>
+    <link rel="stylesheet" href="css-adm/estilo_login.css">
+</head>
+<body>
+
+    <main class="container-login">
+        <form action="../servidor/autenticar.php" method="POST" class="formulario-login">
+            <h1>Acesso Restrito 🛡️</h1>
+            
+            <div class="campo-grupo">
+                <label for="usuario_adm">Usuário:</label>
+                <input type="text" id="usuario_adm" name="usuario_adm" required>
+            </div>
+
+            <div class="campo-grupo">
+                <label for="senha_adm">Senha:</label>
+                <input type="password" id="senha_adm" name="senha_adm" required>
+            </div>
+
+            <button type="submit" class="botao-entrar">Entrar no Painel</button>
+        </form>
+    </main>
+
+</body>
+</html>

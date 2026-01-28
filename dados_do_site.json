@@ -1,0 +1,57 @@
+{
+  "carrossel_topo": {
+    "img_carrossel_1": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32",
+    "img_carrossel_2": "https://images.unsplash.com/photo-1520390138845-fd2d229dd553",
+    "img_carrossel_3": "https://images.unsplash.com/photo-1542038784456-1ea8e935640e",
+    "img_carrossel_4": "https://images.unsplash.com/photo-1510127034890-ba27508e9f1c",
+    "img_carrossel_5": "https://images.unsplash.com/photo-1452784444945-3f422708fe5e",
+    "img_carrossel_6": "https://images.unsplash.com/photo-1554048612-b6a482bc67e5"
+  },
+  "trabalhos_carrossel_2": {
+    "img_carrossel_1.2": "assets/1769562776321-1a259ef0e62e166bc9044f807358fff0.jpg",
+    "texto-trabalho_1": "Cada clique é a chance de eternizar um sentimento. Este trabalho reflete nossa busca por capturar a essência do momento e transformá-la em uma memória viva. Confira como a luz e a emoção se encontraram nesta galeria",
+    "img_carrossel_2.2": "assets/1769562776321-177552be8e9dcd7dc47ee13e3fc9d1aa.jpg",
+    "texto-trabalho_2": "Composição precisa, iluminação estratégica e um olhar atento aos detalhes. Apresentamos aqui um projeto que une técnica avançada e sensibilidade artística para entregar resultados que superam expectativas.",
+    "img_carrossel_3.2": "assets/1769562776323-photo-1507003211169-0a1dd7228f2d.jpg",
+    "texto-trabalho_3": "Momentos únicos merecem registros impecáveis. Veja o resultado deste ensaio onde a simplicidade e a beleza caminham juntas em cada imagem."
+  },
+  "sucesso_carrossel_3": {
+    "titulo_carrossel": "Nossos Sucessos",
+    "img_carrossel_1.3": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622",
+    "texto-trabalho_1.3": "O brilho e a elegância de uma grande celebração.",
+    "img_carrossel_2.3": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3",
+    "texto-trabalho_2.3": "Luzes e cores capturadas no auge da animação.",
+    "img_carrossel_3.3": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3",
+    "texto-trabalho_3.3": "A energia contagiante da pista de dança.",
+    "img_carrossel_4.3": "https://images.unsplash.com/photo-1514525253344-a8130a4ea86d",
+    "texto-trabalho_4.3": "Registrando momentos únicos sob os holofotes.",
+    "img_carrossel_5.3": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30",
+    "texto-trabalho_5.3": "A emoção dos convidados em cada clique.",
+    "img_carrossel_6.3": "https://images.unsplash.com/photo-1464366444887-10820e9bb644",
+    "texto-trabalho_6.3": "Detalhes que tornam a festa inesquecível."
+  },
+  "secao_cabecalho": {
+    "titulo_1s": "Texto_inicio",
+    "texto_1s": "Nossa empresa nasce da paixão...",
+    "img_1s": "assets/1769561805783-Gemini_Generated_Image_ltxu5nltxu5nltxu-removebg-preview.png"
+  },
+  "secao_2": {
+    "titulo_2s": "titulo_2s",
+    "texto_2s": "Nossa empresa nasce da paixão...",
+    "img_2s": "assets/1769561759922-1769555712081-ChatGPT Image 26 de jan. de 2026, 20_17_53.png",
+    "texto_2s-2": "Nossa empresa nasce da paixão...",
+    "img_2s-2": "assets/1769561759924-1769556311686-1769555328636-Gemini_Generated_Image_mb0v7nmb0v7nmb0v-removebg-preview.png"
+  },
+  "secao_3": {
+    "titulo_3s": "titulo_3s",
+    "subtt_3s": "O Início: Uma Paixão que Ganhou Lentes",
+    "txt_3s": "gfhrfdghfdghfdghfgh",
+    "subtt_3s_2": "dfgadfgdasfgdsfgdsfgdfgdsfg",
+    "txt_3s_2": "Com dedicação e investimento em equipamentos, transformamos nossa paixão em profissão.",
+    "subtt_3s_3": "O Início: Uma Paixão que Ganhou Lentes fdsg dfg dfg ",
+    "txt_3s_3": "Agora ajudamos nossos clientes a preservar seus momentos mais preciosos.",
+    "img_3s": "assets/trajetoria.jpg"
+  },
+  "texto_3s_2": "Nossa empresa nasce da paixão...",
+  "texto_3s_3": "Nossa empresa nasce da paixão..."
+}
