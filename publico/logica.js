@@ -88,7 +88,18 @@ async function carregarConteudo() {
 function atualizarLayout(dados) {
     // 1. Cabeçalho e Logo 🏠
     const logo = document.querySelector('.logo');
-    if (logo) logo.src = dados.secao_cabecalho.img_1s;
+    if (logo && dados.secao_cabecalho.img_1s) logo.src = dados.secao_cabecalho.img_1s;
+    
+    // Aplicar tamanho de fonte aos elementos da seção de cabeçalho se existirem
+    const el_titulo_1s = document.querySelector('h1'); // Ajuste se necessário
+    if (el_titulo_1s && dados.secao_cabecalho.tamanho_titulo_1s) {
+        el_titulo_1s.style.fontSize = dados.secao_cabecalho.tamanho_titulo_1s + 'pt';
+    }
+    
+    const el_texto_1s = document.querySelector('.texto_cabecalho'); // Ajuste o seletor conforme necessário
+    if (el_texto_1s && dados.secao_cabecalho.tamanho_texto_1s) {
+        el_texto_1s.style.fontSize = dados.secao_cabecalho.tamanho_texto_1s + 'pt';
+    }
 
     // 2. Primeiro Carrossel (Topo) 🎡
     ['imgem1', 'imgem2', 'imgem3', 'imgem4', 'imgem5', 'imgem6'].forEach((id, idx) => {
@@ -105,40 +116,64 @@ function atualizarLayout(dados) {
             const txt = item.querySelector('p');
             const imgKey = `img_carrossel_${i}.2`;
             const txtKey = `texto-trabalho_${i}`;
+            const sizeKey = `tamanho-trabalho_${i}`;
             if (img && dados.trabalhos_carrossel_2[imgKey]) img.src = dados.trabalhos_carrossel_2[imgKey];
-            if (txt && dados.trabalhos_carrossel_2[txtKey]) txt.innerText = dados.trabalhos_carrossel_2[txtKey];
+            if (txt && dados.trabalhos_carrossel_2[txtKey]) {
+                txt.innerText = dados.trabalhos_carrossel_2[txtKey];
+                if (dados.trabalhos_carrossel_2[sizeKey]) {
+                    txt.style.fontSize = dados.trabalhos_carrossel_2[sizeKey] + 'pt';
+                }
+            }
         }
     }
 
     // 4. Seção Quem Somos (2ª Sessão) 
     const el_tt_2s = document.getElementById('tt_2s');
-    if (el_tt_2s && dados.secao_2.titulo_2s) el_tt_2s.innerText = dados.secao_2.titulo_2s;
+    if (el_tt_2s && dados.secao_2.titulo_2s) {
+        el_tt_2s.innerText = dados.secao_2.titulo_2s;
+        if (dados.secao_2.tamanho_titulo_2s) {
+            el_tt_2s.style.fontSize = dados.secao_2.tamanho_titulo_2s + 'pt';
+        }
+    }
     
     const el_img_2s_1 = document.getElementById('img_2s-1');
     if (el_img_2s_1 && dados.secao_2.img_2s) el_img_2s_1.src = dados.secao_2.img_2s;
     
     const el_txt_2s_1 = document.getElementById('txt_2s-1');
-    if (el_txt_2s_1 && dados.secao_2.texto_2s) el_txt_2s_1.innerText = dados.secao_2.texto_2s;
+    if (el_txt_2s_1 && dados.secao_2.texto_2s) {
+        el_txt_2s_1.innerText = dados.secao_2.texto_2s;
+        if (dados.secao_2.tamanho_texto_2s) {
+            el_txt_2s_1.style.fontSize = dados.secao_2.tamanho_texto_2s + 'pt';
+        }
+    }
     
     const el_img_2s_2 = document.getElementById('img_2s-2');
     if (el_img_2s_2 && dados.secao_2['img_2s-2']) el_img_2s_2.src = dados.secao_2['img_2s-2'];
     
     const el_txt_2s_2 = document.getElementById('txt_2s-2');
-    if (el_txt_2s_2 && dados.secao_2['texto_2s-2']) el_txt_2s_2.innerText = dados.secao_2['texto_2s-2'];
+    if (el_txt_2s_2 && dados.secao_2['texto_2s-2']) {
+        el_txt_2s_2.innerText = dados.secao_2['texto_2s-2'];
+        if (dados.secao_2['tamanho_texto_2s-2']) {
+            el_txt_2s_2.style.fontSize = dados.secao_2['tamanho_texto_2s-2'] + 'pt';
+        }
+    }
 
     // 5. Terceiro Carrossel (Sucesso/Festa) - Imagens e Legendas 🎆
     const el_titulo_carrossel = document.getElementById('titulo_carrossel');
     if (el_titulo_carrossel && dados.sucesso_carrossel_3.titulo_carrossel) {
         el_titulo_carrossel.innerText = dados.sucesso_carrossel_3.titulo_carrossel;
+        if (dados.sucesso_carrossel_3.tamanho_titulo_carrossel) {
+            el_titulo_carrossel.style.fontSize = dados.sucesso_carrossel_3.tamanho_titulo_carrossel + 'pt';
+        }
     }
 
     const imgsC = [
-        { id: 'img_c1', img: 'img_carrossel_1.3', txt: 'texto-trabalho_1.3' },
-        { id: 'img_c2', img: 'img_carrossel_2.3', txt: 'texto-trabalho_2.3' },
-        { id: 'img_c3', img: 'img_carrossel_3.3', txt: 'texto-trabalho_3.3' },
-        { id: 'img_c4', img: 'img_carrossel_4.3', txt: 'texto-trabalho_4.3' },
-        { id: 'img_c5', img: 'img_carrossel_5.3', txt: 'texto-trabalho_5.3' },
-        { id: 'img_c6', img: 'img_carrossel_6.3', txt: 'texto-trabalho_6.3' }
+        { id: 'img_c1', img: 'img_carrossel_1.3', txt: 'texto-trabalho_1.3', size: 'tamanho-trabalho_1.3' },
+        { id: 'img_c2', img: 'img_carrossel_2.3', txt: 'texto-trabalho_2.3', size: 'tamanho-trabalho_2.3' },
+        { id: 'img_c3', img: 'img_carrossel_3.3', txt: 'texto-trabalho_3.3', size: 'tamanho-trabalho_3.3' },
+        { id: 'img_c4', img: 'img_carrossel_4.3', txt: 'texto-trabalho_4.3', size: 'tamanho-trabalho_4.3' },
+        { id: 'img_c5', img: 'img_carrossel_5.3', txt: 'texto-trabalho_5.3', size: 'tamanho-trabalho_5.3' },
+        { id: 'img_c6', img: 'img_carrossel_6.3', txt: 'texto-trabalho_6.3', size: 'tamanho-trabalho_6.3' }
     ];
 
     imgsC.forEach(item => {
@@ -146,6 +181,7 @@ function atualizarLayout(dados) {
         if (el && dados.sucesso_carrossel_3[item.img] && dados.sucesso_carrossel_3[item.txt]) {
             el.src = dados.sucesso_carrossel_3[item.img];
             el.setAttribute('data-legenda', dados.sucesso_carrossel_3[item.txt]);
+            // Aplicar tamanho de fonte se existir (nota: legendas são aplicadas via atributo)
         }
     });
     console.log("Iniciando mapeamento de IDs...");
@@ -168,28 +204,68 @@ function atualizarLayout(dados) {
     // Se todos estiverem OK, o problema pode estar na estrutura do JSON.
     // 6. Nossa Trajetória (3ª Sessão) 📜
     const el_tt_3s = document.getElementById('tt_3s');
-    if (el_tt_3s) el_tt_3s.innerText = dados.secao_3.titulo_3s;
+    if (el_tt_3s && dados.secao_3.titulo_3s) {
+        el_tt_3s.innerText = dados.secao_3.titulo_3s;
+        if (dados.secao_3.tamanho_titulo_3s) {
+            el_tt_3s.style.fontSize = dados.secao_3.tamanho_titulo_3s + 'pt';
+        }
+    }
     
     const el_subtt_3s = document.getElementById('subtt_3s');
-    if (el_subtt_3s) el_subtt_3s.innerText = dados.secao_3.subtt_3s;
+    if (el_subtt_3s && dados.secao_3.subtt_3s) {
+        el_subtt_3s.innerText = dados.secao_3.subtt_3s;
+        if (dados.secao_3.tamanho_subtt_3s) {
+            el_subtt_3s.style.fontSize = dados.secao_3.tamanho_subtt_3s + 'pt';
+        }
+    }
     
     const el_txt_3s = document.getElementById('txt_3s');
-    if (el_txt_3s) el_txt_3s.innerText = dados.secao_3.txt_3s;
+    if (el_txt_3s && dados.secao_3.txt_3s) {
+        el_txt_3s.innerText = dados.secao_3.txt_3s;
+        if (dados.secao_3.tamanho_txt_3s) {
+            el_txt_3s.style.fontSize = dados.secao_3.tamanho_txt_3s + 'pt';
+        }
+    }
     
-    const el_subtt_3s_2 = document.getElementById('subtt_3s_2 ');
-    if (el_subtt_3s_2) el_subtt_3s_2.innerText = dados.secao_3.subtt_3s_2;
+    const el_subtt_3s_2 = document.getElementById('subtt_3s_2');
+    if (el_subtt_3s_2 && dados.secao_3.subtt_3s_2) {
+        el_subtt_3s_2.innerText = dados.secao_3.subtt_3s_2;
+        if (dados.secao_3.tamanho_subtt_3s_2) {
+            el_subtt_3s_2.style.fontSize = dados.secao_3.tamanho_subtt_3s_2 + 'pt';
+        }
+    }
     
     const el_txt_3s_2 = document.getElementById('txt_3s.2');
-    if (el_txt_3s_2) el_txt_3s_2.innerText = dados.secao_3.txt_3s_2;
+    if (el_txt_3s_2 && dados.secao_3.txt_3s_2) {
+        el_txt_3s_2.innerText = dados.secao_3.txt_3s_2;
+        if (dados.secao_3.tamanho_txt_3s_2) {
+            el_txt_3s_2.style.fontSize = dados.secao_3.tamanho_txt_3s_2 + 'pt';
+        }
+    }
     
     const el_subtt_3s_3 = document.getElementById('subtt_3s_3');
-    if (el_subtt_3s_3) el_subtt_3s_3.innerText = dados.secao_3.subtt_3s_3;
+    if (el_subtt_3s_3 && dados.secao_3.subtt_3s_3) {
+        el_subtt_3s_3.innerText = dados.secao_3.subtt_3s_3;
+        if (dados.secao_3.tamanho_subtt_3s_3) {
+            el_subtt_3s_3.style.fontSize = dados.secao_3.tamanho_subtt_3s_3 + 'pt';
+        }
+    }
     
     const el_txt_3s_3 = document.getElementById('txt_3s.3');
-    if (el_txt_3s_3) el_txt_3s_3.innerText = dados.secao_3.txt_3s_3;
+    if (el_txt_3s_3 && dados.secao_3.txt_3s_3) {
+        el_txt_3s_3.innerText = dados.secao_3.txt_3s_3;
+        if (dados.secao_3.tamanho_txt_3s_3) {
+            el_txt_3s_3.style.fontSize = dados.secao_3.tamanho_txt_3s_3 + 'pt';
+        }
+    }
     
     const el_img_3s = document.getElementById('img_3s');
-    if (el_img_3s) el_img_3s.src = dados.secao_3.img_3s;
+    if (el_img_3s && dados.secao_3.img_3s) el_img_3s.src = dados.secao_3.img_3s;
+    
+    const el_legenda_trajetoria = document.getElementById('legenda_trajetoria');
+    if (el_legenda_trajetoria && dados.secao_3.legenda_trajetoria) {
+        el_legenda_trajetoria.innerText = dados.secao_3.legenda_trajetoria;
+    }
 }
 
 window.onload = () => {
