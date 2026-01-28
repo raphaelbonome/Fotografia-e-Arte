@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="trabalhos.css">
+    <script src="logica.js" defer></script>
+    <title>Nossos Trabalhos - Portfólio</title>
+</head>
+<body>
+
+    <header id="cabecalho-trabalhos" class="cabecalho-trabalhos">
+        <nav class="topo">
+            <img class="logo" src="assets/Gemini_Generated_Image_ltxu5nltxu5nltxu-removebg-preview.png" alt="Logo">
+            <menu class="menu">
+                <li class="paginas"><a href="index.html">Home</a></li>
+                <li class="paginas"><a href="contato.html">Contato</a></li>
+                <li class="paginas"><a href="trabalhos.html">Trabalhos</a></li>
+            </menu>
+        </nav>
+
+        <div class="secao-titulo-trabalhos">
+            <h1 id="titulo_trabalhos" class="titulo-trabalhos">Nossos Trabalhos</h1>
+            <p id="descricao_trabalhos" class="descricao-trabalhos">Uma coleção dos nossos melhores projetos fotográficos</p>
+        </div>
+    </header>
+
+    <main class="container-trabalhos">
+
+        <!-- Filtros de Categoria -->
+        <div class="filtros-categoria">
+            <button class="btn-filtro ativo" data-filtro="todos">Todos</button>
+            <button class="btn-filtro" data-filtro="casamentos">Casamentos</button>
+            <button class="btn-filtro" data-filtro="eventos">Eventos</button>
+            <button class="btn-filtro" data-filtro="ensaios">Ensaios</button>
+            <button class="btn-filtro" data-filtro="comercial">Comercial</button>
+        </div>
+
+        <!-- Grid de Trabalhos -->
+        <div id="grid-trabalhos" class="grid-trabalhos">
+            <!-- Será preenchido dinamicamente pelo logica.js -->
+        </div>
+
+    </main>
+
+    <!-- Modal de Detalhes -->
+    <div id="modal-trabalho" class="modal-trabalho">
+        <span id="fechar-modal-trabalho" class="fechar-modal">&times;</span>
+        <div class="conteudo-modal-trabalho">
+            <img id="img-modal-trabalho" src="" alt="">
+            <div class="info-modal">
+                <h2 id="titulo-modal-trabalho"></h2>
+                <p id="categoria-modal-trabalho" class="categoria-badge"></p>
+                <p id="descricao-modal-trabalho"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a class="redes" href="#"><i class="fa-brands fa-whatsapp"></i>Whatsapp</a>
+    </footer>
+
+    <a href="https://wa.me/5511999999999" class="botao-whatsapp-fixo" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="icone-whatsapp">
+    </a>
+
+</body>
+</html>

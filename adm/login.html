@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrativo - Login</title>
     <link rel="stylesheet" href="css-adm/estilo_login.css">
+    <script src="logica_login.js" defer></script>
 </head>
 <body>
 
     <main class="container-login">
-        <form action="../servidor/autenticar.php" method="POST" class="formulario-login">
+        <form id="formulario-login" class="formulario-login">
             <h1>Acesso Restrito 🛡️</h1>
             
             <div class="campo-grupo">
-                <label for="usuario_adm">Usuário:</label>
-                <input type="text" id="usuario_adm" name="usuario_adm" required>
+                <label for="login">Login:</label>
+                <input type="text" id="login" name="login" placeholder="Digite seu login" required>
             </div>
 
             <div class="campo-grupo">
-                <label for="senha_adm">Senha:</label>
-                <input type="password" id="senha_adm" name="senha_adm" required>
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
             </div>
+
+            <div id="mensagem-erro" class="mensagem" style="display: none;"></div>
 
             <button type="submit" class="botao-entrar">Entrar no Painel</button>
         </form>

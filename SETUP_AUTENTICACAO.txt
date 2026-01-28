@@ -1,0 +1,109 @@
+# 🔐 Sistema de Autenticação Implementado
+
+## ✅ O que foi criado:
+
+### 1. **Criptografia AES-256** 
+- Arquivo: `adm/servidor/criptografia.js`
+- Usa algoritmo militar AES-256-CBC
+- Funções: `criptografar()` e `descriptografar()`
+
+### 2. **Credenciais Criptografadas**
+- Arquivo: `adm/servidor/credenciais.json`
+- Login: `admin`
+- Senha: `admin`
+- As credenciais estão criptografadas com AES-256
+
+### 3. **Script para Gerar Credenciais**
+- Arquivo: `adm/servidor/gerar_credenciais.js`
+- Para alterar credenciais depois:
+  ```bash
+  node gerar_credenciais.js
+  ```
+
+### 4. **Lógica de Login (Cliente)**
+- Arquivo: `adm/logica_login.js`
+- Valida formulário
+- Envia credenciais ao servidor
+- Verifica autenticação em páginas protegidas
+- Armazena token no localStorage
+
+### 5. **Página de Login Melhorada**
+- Arquivo: `adm/login.html`
+- Interface moderna com gradiente
+- Campos: Login e Senha
+- Mensagens de erro/sucesso
+- Redirecionamento automático
+
+### 6. **Estilos de Login**
+- Arquivo: `adm/css-adm/estilo_login.css`
+- Design responsivo
+- Animações suaves
+- Cores bem definidas
+
+### 7. **Endpoint de Validação**
+- URL: `POST /validar-login`
+- Valida credenciais no servidor
+- Retorna sucesso ou erro
+
+## 🚀 Como usar:
+
+### 1️⃣ Acessar o login:
+```
+http://localhost:3000/login.html
+```
+
+### 2️⃣ Credenciais padrão:
+```
+Login: admin
+Senha: admin
+```
+
+### 3️⃣ Após autenticar:
+- Será redirecionado para `/painel.html`
+- Token salvo no localStorage
+
+### 4️⃣ Para alterar credenciais:
+Edite `adm/servidor/gerar_credenciais.js` e execute:
+```bash
+node gerar_credenciais.js
+```
+
+## 📊 Estrutura de Arquivos:
+
+```
+adm/
+├── login.html (ATUALIZADO)
+├── logica_login.js (NOVO)
+├── painel.html
+├── logica_adm.js
+├── css-adm/
+│   ├── estilo_painel.css
+│   └── estilo_login.css (NOVO)
+└── servidor/
+    ├── servidor.js (ATUALIZADO - novo endpoint)
+    ├── criptografia.js (NOVO)
+    ├── credenciais.json (NOVO)
+    └── gerar_credenciais.js (NOVO)
+```
+
+## 🔒 Fluxo de Segurança:
+
+```
+1. Usuário acessa /login.html
+2. Preenche credenciais
+3. JavaScript envia POST /validar-login
+4. Servidor descriptografa e valida credenciais
+5. Se OK → token salvo + redirect para painel
+6. Se ERRO → mensagem exibida
+```
+
+## ⚠️ Notas Importantes:
+
+- Credenciais padrão (`admin/admin`) devem ser alteradas quando o projeto estiver pronto
+- A chave secreta está no código (melhorar em produção com variáveis de ambiente)
+- Implemente proteção contra força bruta em produção
+- Use HTTPS em servidor real
+
+## 📝 Documentação Completa:
+
+Veja `AUTENTICACAO.md` na raiz do projeto para mais detalhes!
