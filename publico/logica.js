@@ -388,24 +388,69 @@ function setupFiltros() {
     });
 }
 
-// Modal de trabalho
-window.addEventListener('load', () => {
-    const modalTrabalho = document.getElementById('modal-trabalho');
-    const fecharModalTrabalho = document.getElementById('fechar-modal-trabalho');
-
-    if (modalTrabalho && fecharModalTrabalho) {
-        fecharModalTrabalho.onclick = () => {
-            modalTrabalho.style.display = 'none';
-        };
-
-        window.onclick = (event) => {
-            if (event.target === modalTrabalho) {
-                modalTrabalho.style.display = 'none';
-            }
-        };
-    }
-});
-
 window.onload = () => {
     carregarConteudo();
+
+    // --- LÓGICA DE FILTRO E MODAL (PÁGINA TRABALHOS) ---
+    if (document.getElementById('grid-trabalhos')) {
+        const botoesFiltr = document.querySelectorAll('.btn-filtro');
+        const cards = document.querySelectorAll('.card-trabalho');
+        const modal = document.getElementById('modal-trabalho');
+        const fecharModal = document.getElementById('fechar-modal-trabalho');
+        const botoeAbrir = document.querySelectorAll('.btn-abrir-modal');
+
+        // Filtrar trabalhos
+        botoesFiltr.forEach(botao => {
+            botao.addEventListener('click', () => {
+                // Remove classe ativo de todos
+                botoesFiltr.forEach(b => b.classList.remove('ativo'));
+                botao.classList.add('ativo');
+
+                const filtro = botao.getAttribute('data-filtro');
+
+                cards.forEach(card => {
+                    if (filtro === 'todos') {
+                        card.classList.remove('hidden');
+                    } else {
+                        const categoria = card.getAttribute('data-categoria');
+                        if (categoria === filtro) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+
+        // Abrir modal
+        botoeAbrir.forEach(botao => {
+            botao.addEventListener('click', (e) => {
+                e.preventDefault();
+                const titulo = botao.getAttribute('data-titulo');
+                const categoria = botao.getAttribute('data-categoria');
+                const descricao = botao.getAttribute('data-descricao');
+                const imagem = botao.getAttribute('data-imagem');
+
+                document.getElementById('img-modal-trabalho').src = imagem;
+                document.getElementById('titulo-modal-trabalho').innerText = titulo;
+                document.getElementById('categoria-modal-trabalho').innerText = categoria;
+                document.getElementById('descricao-modal-trabalho').innerText = descricao;
+
+                modal.classList.add('aberto');
+            });
+        });
+
+        // Fechar modal
+        fecharModal.addEventListener('click', () => {
+            modal.classList.remove('aberto');
+        });
+
+        // Fechar modal ao clicar fora
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.classList.remove('aberto');
+            }
+        });
+    }
 };

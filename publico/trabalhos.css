@@ -1,0 +1,238 @@
+/* Estilo dos botões de filtro */
+button {
+    text-decoration: none;
+    color: #3a4c61;
+    border: #D5BC9E solid 2px;
+    background-color: #D5BC9E;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #e8d5b1;
+    border-color: #e8d5b1;
+}
+
+button.ativo {
+    background-color: #D5BC9E;
+    box-shadow: 0 0 10px rgba(213, 188, 158, 0.5);
+}
+
+/* Estilo do Grid de Trabalhos */
+.grid-trabalhos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.card-trabalho {
+    background: rgba(52, 64, 78, 0.8);
+    border: 1px solid #D5BC9E;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-trabalho:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(213, 188, 158, 0.3);
+}
+
+.card-trabalho img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.card-info h3 {
+    color: #D5BC9E;
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.card-info .categoria {
+    color: #D5BC9E;
+    font-size: 0.8rem;
+    background-color: rgba(213, 188, 158, 0.2);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.card-info p {
+    color: #e0d5c5;
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.card-info .btn-abrir-modal {
+    margin-top: 15px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    background-color: #D5BC9E;
+    color: #3a4c61;
+    border: 2px solid #D5BC9E;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-info .btn-abrir-modal:hover {
+    background-color: transparent;
+    color: #D5BC9E;
+}
+
+.card-trabalho.hidden {
+    display: none;
+}
+
+/* MODAL DE TRABALHO */
+.modal-trabalho {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+.modal-trabalho.aberto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo-modal-trabalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 800px;
+    background-color: #34404E;
+    border: 2px solid #D5BC9E;
+    border-radius: 12px;
+    padding: 40px;
+    position: relative;
+}
+
+#img-modal-trabalho {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.info-modal {
+    width: 100%;
+    text-align: center;
+}
+
+#titulo-modal-trabalho {
+    color: #D5BC9E;
+    font-size: 2rem;
+    margin: 0 0 15px 0;
+}
+
+#categoria-modal-trabalho {
+    color: #D5BC9E;
+    font-size: 0.9rem;
+    background-color: rgba(213, 188, 158, 0.2);
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+#descricao-modal-trabalho {
+    color: #e0d5c5;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.fechar-modal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fechar-modal:hover {
+    color: #D5BC9E;
+}
+
+/* Filtros de Categoria */
+.filtros-categoria {
+    text-align: center;
+    padding: 30px 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-filtro {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.secao-titulo-trabalhos {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.titulo-trabalhos {
+    color: #D5BC9E;
+    font-size: 2.5rem;
+    margin: 0 0 10px 0;
+}
+
+.descricao-trabalhos {
+    color: #e0d5c5;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .grid-trabalhos {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .conteudo-modal-trabalho {
+        width: 95%;
+        padding: 30px 20px;
+    }
+
+    #img-modal-trabalho {
+        max-height: 400px;
+    }
+
+    #titulo-modal-trabalho {
+        font-size: 1.5rem;
+    }
+
+    .fechar-modal {
+        font-size: 28px;
+        top: 15px;
+        right: 15px;
+    }
+}
