@@ -524,6 +524,11 @@ text-align: center;
     #img_2-2{
         width: 500px;
     }
+#quemsomos p{
+    font-size: 25pt;
+}
+
+
 
     .foto_carrossel:hover {
     transform: scale(1.1);
@@ -673,10 +678,14 @@ margin-left: 0px;
 .seta-navegacao{
         display: block;
     }
-
-
 }
 
+#nossa_trajetoria p,h1, h2{
+    font-size: 22pt;}
+#nossa_trajetoria img{
+    width: 500px;
+
+}
 
 
 /*-------------------------- pagina contato --------------------------------*/
