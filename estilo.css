@@ -185,6 +185,7 @@ text-align: center;
 
 .img_inicio{
     width: 350px;
+    ;
     margin-left: -30px;
     border:#D5BC9E solid 1px;
 }
@@ -516,6 +517,12 @@ text-align: center;
 
     body{
         font-size: 20pt;
+    }
+    #img_2-1{
+        width: 500px;
+    }
+    #img_2-2{
+        width: 500px;
     }
 
     .foto_carrossel:hover {
